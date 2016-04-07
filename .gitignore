@@ -1,0 +1,9 @@
+# Ignore all dotfiles...
+.*
+# except for .gitignore
+!.gitignore
+
+*.iml
+*.ipr
+*.iws
+target
