@@ -20,7 +20,7 @@ public class TestSlackAppender {
         log.trace("test trace 1");
         log.error("test entry error");
         int cpt = 0;
-        while(cpt < 10){
+        while(cpt < 5){
             try {
                 log.trace(String.format("test trace waiting (%d sec)",cpt++));
                 Thread.sleep(1000);                 //1000 milliseconds is one second.
