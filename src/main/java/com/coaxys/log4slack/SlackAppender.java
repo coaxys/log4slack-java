@@ -23,15 +23,17 @@ public class SlackAppender extends AppenderSkeleton {
                     .asStringAsync(new Callback<String>() {
 
                         public void failed(UnirestException e) {
-                            System.out.println("The slack request has failed");
+                            System.err.println("The slack request has failed");
                         }
 
                         public void completed(HttpResponse<String> response) {
-                            System.out.println(response.getStatusText());
+                            if(response.getStatus() != 200){
+                                System.err.println("Server error");
+                            }
                         }
 
                         public void cancelled() {
-                            System.out.println("The slack request has been cancelled");
+                            System.err.println("The slack request has been cancelled");
                         }
 
                     });
